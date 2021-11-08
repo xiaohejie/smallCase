@@ -43,6 +43,21 @@ public:
 	//展示职工列表
 	void show_Emp();
 
+	//判断职工是否存在列表中
+	int IsExit(int id);
+
+	//删除职工
+	void del_Emp();
+
+	//修改职工
+	void mod_Emp();
+
+	//查找职工
+	void find_Emp();
+
+	//排序职工
+	void sort_Emp();
+
 	
 
 	~WorkerManager();
