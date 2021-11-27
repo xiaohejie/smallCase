@@ -53,6 +53,7 @@ int main() {
 			wm.sort_Emp();
 			break;
 		case '7': //гЕ©унд╪Ч
+			wm.clean_File();
 			break;
 		default:
 			system("cls");
