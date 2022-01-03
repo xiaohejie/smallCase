@@ -1,0 +1,3 @@
+﻿  Manager.cpp
+D:\C++\workspace\04 小案例\smallCase\04 机房预约系统\04 机房预约系统\Manager.cpp(110,7): warning C4101: “isId”: 未引用的局部变量
+  04 机房预约系统.vcxproj -> D:\C++\workspace\04 小案例\smallCase\04 机房预约系统\x64\Debug\04 机房预约系统.exe
