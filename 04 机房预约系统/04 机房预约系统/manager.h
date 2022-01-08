@@ -5,6 +5,7 @@ using namespace std;
 #include "Identity.h"
 #include "student.h"
 #include "teacher.h"
+#include "computerRoom.h"
 
 class Manager :public Identity {
 public:
@@ -27,6 +28,8 @@ public:
 	//查看账号
 	void showPerson();
 
+	//获取机房信息
+	void getComputerRoom();
 	//查看机房信息
 	void showComputer();
 
@@ -41,5 +44,8 @@ public:
 
 	//教师容器
 	vector<Teacher>vTea;
+
+	//机房容器
+	vector<ComputerRoom> vCom;
 
 };

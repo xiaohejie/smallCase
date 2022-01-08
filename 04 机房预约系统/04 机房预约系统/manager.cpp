@@ -15,6 +15,7 @@ Manager::Manager(string name, string pwd)
 
 	//初始化容器
 	this->initVetor();
+	//this->getComputerRoom();
 }
 
 //选择菜单
@@ -228,12 +229,50 @@ void Manager::showPerson()
 	return;
 }
 
+//获取机房信息
+void Manager::getComputerRoom() {
+	ifstream ifs;
+	ifs.open(COMPUTER_FILE, ios::in);
+
+	ComputerRoom c;
+	while (ifs >> c.m_ComId && ifs >> c.m_MaxNum)
+	{
+		vCom.push_back(c);
+	}
+	cout << "当前机房数量为：" << vCom.size() << endl;
+	ifs.close();
+}
 //查看机房信息
 void Manager::showComputer(){
-
+	cout << "机房信息如下：" << endl;
+	this->getComputerRoom();
+	for (vector<ComputerRoom>::iterator it = vCom.begin(); it != vCom.end(); it++)
+	{
+		cout << "机房编号：" << it->m_ComId << " 机房最大容量：" << it->m_MaxNum << endl;
+	}
+	system("pause");
+	system("cls");
 }
 
 //清空预约记录
-void Manager::cleanFile()
-{
+void Manager::cleanFile(){
+	cout << "确认是否清空预约记录（Y/N）：";
+	string select;
+	cin >> select;
+	if (select == "Y")
+	{
+		ofstream ofs(ORDER_FILE, ios::trunc);	//trunc形式打开：将文件删掉，然后再重新创建
+		ofs.close();
+
+		cout << "清空成功！" << endl;
+	}
+	else
+	{
+		cout << "未清空成功！" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+	system("pause");
+	system("cls");
 }

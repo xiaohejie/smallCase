@@ -1,5 +1,7 @@
 #pragma once
 #include "Identity.h"
+#include "orderFile.h"
+#include "globalFile.h"
 #include <iostream>
 using namespace std;
 

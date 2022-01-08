@@ -46,6 +46,105 @@ void managerMenu(Identity*& manager) {
 
 	}
 }
+
+//教职工菜单
+void teacherMenu(Identity* & teacher) {
+	while (true)
+	{
+		//选择功能
+		teacher->openMenu();
+		//将Identity强制转化为Teacher类型
+		Teacher* man = (Teacher*)teacher;
+		int select = 0;
+		cin >> select;
+
+		switch (select)
+		{
+		case 1:	//1.申请预约 
+			man->showAllOrder();
+			break;
+		case 2:	//2.查看我的预约 
+			man->validOrder();
+			break;
+		case 0:	//注销登录
+			delete teacher;
+			cout << "注销成功！" << endl;
+			system("pause");
+			system("cls");
+			return;
+		default:	//输入错误
+			cout << "输入错误,请重新输入！" << endl;
+			system("pause");
+			system("cls");
+			break;
+		}
+	}
+}
+//学生登录菜单
+void studentMenu(Identity*& student) {
+	while (true)
+	{
+		//请选择：
+		student->openMenu();
+		//将Identity强制转化为Manager类型
+		Student* man = (Student*)student;
+		int select = 0;
+		cin >> select;
+
+		switch (select)
+		{
+		case 1:	//1.申请预约 
+			man->applayOrder();
+			break;
+		case 2:	//2.查看我的预约 
+			man->showMyOrder();
+			break;
+		case 3:	//3.查看所有预约 
+			man->showAllOrder();
+			break;
+		case 4:	//4.取消预约  
+			man->cancelOrder();
+			break;
+		case 0:	//注销登录
+			delete student;
+			cout << "注销成功！" << endl;
+			system("pause");
+			system("cls");
+			return;
+		default:	//输入错误
+			cout << "输入错误,请重新输入！" << endl;
+			system("pause");
+			system("cls");
+			break;
+		}
+
+		//if (select == 1) //申请预约
+		//{
+		//	man->applayOrder();
+		//}
+		//else if (select == 2) //查看自身预约
+		//{
+		//	man->showMyOrder();
+		//}
+		//else if (select == 3) //查看所有预约
+		//{
+		//	man->showAllOrder();
+		//}
+		//else if (select == 4) //取消预约
+		//{
+		//	man->cancelOrder();
+		//}
+		//else
+		//{
+		//	delete student;
+		//	cout << "注销成功" << endl;
+		//	system("pause");
+		//	system("cls");
+		//	return;
+		//}
+	}
+}
+
 //登录功能
 void LoginIn(string fileName, int type) {
 	//父类指针，用于指向子类对象
@@ -104,7 +203,7 @@ void LoginIn(string fileName, int type) {
 
 				person = new Student(id, name, pwd);
 				//进入到学生身份的子菜单
-
+				studentMenu(person);
 
 				return;
 			}
@@ -126,7 +225,7 @@ void LoginIn(string fileName, int type) {
 
 				person = new Teacher(id, name, pwd);  
 				//进入到教师身份的子菜单
-
+				teacherMenu(person);
 				return;
 			}
 		}
